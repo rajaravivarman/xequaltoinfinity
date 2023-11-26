@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>X Equal To Infinity</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "bebas-neue";
+        src: url(./BebasNeue-Regular.ttf) format("truetype");
+      }
+      h1 {
+        font-family: "bebas-neue", sans-serif;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "bebas-neue"; /* Sans-serif font */
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em;
+        background: linear-gradient(
+          to right,
+          #ffd700,
+          #ffd300
+        ); /* Yellow gradient background */
+        color: black;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 1.5em;
+        cursor: pointer;
+      }
+
+      header nav {
+        display: flex;
+      }
+
+      header nav h1 {
+        margin-left: 15px;
+        font-size: 1em;
+      }
+
+      main {
+        height: 100vh;
+        background: linear-gradient(
+          to right,
+          #0000ff,
+          #000099
+        ); /* Blue gradient background */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      main h1 {
+        font-size: 4em; /* Increased font size */
+        color: white;
+        text-align: center;
+      }
+
+      footer {
+        padding: 1em;
+        background: linear-gradient(
+          to right,
+          #0000ff,
+          #000099
+        ); /* Blue gradient background */
+        color: white;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px; /* Set a fixed height for the footer */
+      }
+
+      footer p {
+        margin: 0; /* Remove default margin */
+      }
+
+      div {
+        padding: 20px; /* Added padding around the text */
+      }
+
+      .word {
+        font-size: 4em; /* Increased font size */
+        color: white;
+        text-align: center;
+      }
+      .new {
+        font-size: 2em; /* Increased font size */
+        color: white;
+        text-align: center;
+        opacity: 0.2;
+      }
+    </style>
+    <script>
+      var words = [
+          "We are a technology company",
+          "focused on building",
+          "the next generation of software products.",
+          "X",
+          "Equal",
+          "To",
+          "Infinity",
+        ],
+        part,
+        i = 0,
+        offset = 0,
+        len = words.length,
+        forwards = true,
+        skip_count = 0,
+        skip_delay = 15,
+        speed = 70;
+      var wordflick = function () {
+        setInterval(function () {
+          if (forwards) {
+            if (offset >= words[i].length) {
+              ++skip_count;
+              if (skip_count == skip_delay) {
+                forwards = false;
+                skip_count = 0;
+              }
+            }
+          } else {
+            if (offset == 0) {
+              forwards = true;
+              i++;
+              offset = 0;
+              if (i >= len) {
+                i = 0;
+              }
+            }
+          }
+          part = words[i].substr(0, offset);
+          if (skip_count == 0) {
+            if (forwards) {
+              offset++;
+            } else {
+              offset--;
+            }
+          }
+          $(".word").text(part);
+        }, speed);
+      };
+
+      $(document).ready(function () {
+        wordflick();
+      });
+    </script>
+    <script>
+      var words = [
+          "We are a technology company",
+          "focused on building",
+          "the next generation of software products.",
+          "X",
+          "Equal",
+          "To",
+          "Infinity",
+        ],
+        part,
+        i = 0,
+        offset = 0,
+        len = words.length,
+        forwards = true,
+        skip_count = 0,
+        skip_delay = 15,
+        speed = 70;
+      var wordflick = function () {
+        setInterval(function () {
+          if (forwards) {
+            if (offset >= words[i].length) {
+              ++skip_count;
+              if (skip_count == skip_delay) {
+                forwards = false;
+                skip_count = 0;
+              }
+            }
+          } else {
+            if (offset == 0) {
+              forwards = true;
+              i++;
+              offset = 0;
+              if (i >= len) {
+                i = 0;
+              }
+            }
+          }
+          part = words[i].substr(0, offset);
+          if (skip_count == 0) {
+            if (forwards) {
+              offset++;
+            } else {
+              offset--;
+            }
+          }
+          $(".word").text(part);
+        }, speed);
+      };
+
+      $(document).ready(function () {
+        wordflick();
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>X Equal To Infinity</h1>
+      <nav>
+        <h1>Home</h1>
+        <h1>Products</h1>
+        <h1>Services</h1>
+        <h1>About Us</h1>
+        <h1>Contact Us</h1>
+      </nav>
+    </header>
+
+    <main>
+      <div class="word new"></div>
+      <div class="word"></div>
+    </main>
+
+    <div>
+      <!-- Your additional content goes here -->
+      <p>
+        We are a technology company that is focused on building the next
+        generation of software products.
+      </p>
+    </div>
+
+    <footer>
+      <p>&copy; 2023 X Equal To Infinity. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
